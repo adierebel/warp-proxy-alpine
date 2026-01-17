@@ -1,6 +1,6 @@
 # WARP Proxy Alpine
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/adierebel/warp-proxy)](https://hub.docker.com/r/adierebel/warp-proxy)
+[![Docker Pulls](https://img.shields.io/docker/pulls/adierebel/warp-proxy)](https://hub.docker.com/r/adierebel/warp-proxy/tags)
 
 ## Usage
 
@@ -24,6 +24,9 @@ services:
       - MKNOD
       - AUDIT_WRITE
       - NET_ADMIN
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv4.conf.all.src_valid_mark=1
     devices:
       - /dev/net/tun:/dev/net/tun
     volumes:
