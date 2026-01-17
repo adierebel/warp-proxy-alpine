@@ -2,11 +2,18 @@ FROM alpine:latest
 
 # Install deps
 RUN apk add --no-cache \
+    coredns \
+    grep \
+    iproute2 \
     iptables \
+    ip6tables \
     iputils \
     net-tools \
+    nftables \
     openresolv \
     wireguard-tools \
+    libcap-utils \
+    kmod \
     curl \
     ca-certificates \
     gcc \
