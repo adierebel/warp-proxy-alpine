@@ -27,8 +27,6 @@ services:
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=0
       - net.ipv4.conf.all.src_valid_mark=1
-    devices:
-      - /dev/net/tun:/dev/net/tun
     volumes:
       - ./warp-config:/data
 ```

@@ -30,7 +30,8 @@ RUN curl -fsSL https://github.com/rofl0r/microsocks/archive/refs/heads/master.ta
     && cd .. && rm -rf microsocks-master
 
 # Install latest wgcf from github
-ARG TARGETARCH=amd64
+ARG TARGETARCH
+RUN echo "BUILD ARCH TARGET: $TARGETARCH"
 RUN LATEST_VERSION=$(curl -s https://api.github.com/repos/ViRb3/wgcf/releases/latest | jq -r .tag_name | sed 's/v//') && \
     if [ "$TARGETARCH" = "arm64" ]; then ARCH="arm64"; else ARCH="amd64"; fi && \
     curl -fsSL "https://github.com/ViRb3/wgcf/releases/download/v${LATEST_VERSION}/wgcf_${LATEST_VERSION}_linux_${ARCH}" -o /usr/local/bin/wgcf && \
